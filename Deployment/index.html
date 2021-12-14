@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Deployment Tutorial 1</title>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+  
+</head>
+
+<body style="background: #000;">
+ <div class="login">
+	<h1>Future Electric Vehicle Price Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	  <input type="text" name="Battery" placeholder="Battery (kWh)" required="required" />
+        <input type="text" name="0-100" placeholder="0-100 (Sec)" required="required" />
+		    <input type="text" name="Top Speed" placeholder="Top Speed (km/h)" required="required" />
+        <input type="text" name="Range" placeholder="Range (km)" required="required" />
+        <input type="text" name="Efficiency" placeholder="Efficiency (Wh/km)" required="required" />
+        <input type="text" name="Fast Charge" placeholder="Fast Charge (km/hr)" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict Future EV Price</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+</body>
+</html>
